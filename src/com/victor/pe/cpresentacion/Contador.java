@@ -9,13 +9,16 @@ package com.victor.pe.cpresentacion;
  * @author Alumno-PB203
  */
 public class Contador extends javax.swing.JPanel {
+    int contador;
 
     /**
      * Creates new form Contador
      */
     public Contador() {
         initComponents();
+        this.Resultado.setText("0");
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,19 +29,112 @@ public class Contador extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        Contador = new javax.swing.JLabel();
+        Resultado = new javax.swing.JTextField();
+        JBSuma = new javax.swing.JButton();
+        JBResta = new javax.swing.JButton();
+
+        jPanel1.setBackground(new java.awt.Color(153, 255, 153));
+
+        Contador.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        Contador.setText("Contador");
+
+        Resultado.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        Resultado.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        Resultado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ResultadoActionPerformed(evt);
+            }
+        });
+
+        JBSuma.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        JBSuma.setText("Sumar +1");
+        JBSuma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBSumaActionPerformed(evt);
+            }
+        });
+
+        JBResta.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        JBResta.setText("Restar - 1");
+        JBResta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBRestaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(JBSuma)
+                        .addGap(57, 57, 57)
+                        .addComponent(JBResta))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(Resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addComponent(Contador)))
+                .addContainerGap(64, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(95, 95, 95)
+                .addComponent(Contador)
+                .addGap(38, 38, 38)
+                .addComponent(Resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JBSuma)
+                    .addComponent(JBResta))
+                .addContainerGap(79, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void ResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResultadoActionPerformed
+        // TODO add your handling code here:       
+        
+    }//GEN-LAST:event_ResultadoActionPerformed
+
+    private void JBSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBSumaActionPerformed
+        // TODO add your handling code here:
+        contador++;
+        String numero = String.valueOf(contador);
+        Resultado.setText(numero);
+    
+    }//GEN-LAST:event_JBSumaActionPerformed
+
+    private void JBRestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRestaActionPerformed
+        // TODO add your handling code here:
+        contador--;
+        String numero = String.valueOf(contador);
+        Resultado.setText(numero);
+    }//GEN-LAST:event_JBRestaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Contador;
+    private javax.swing.JButton JBResta;
+    private javax.swing.JButton JBSuma;
+    private javax.swing.JTextField Resultado;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

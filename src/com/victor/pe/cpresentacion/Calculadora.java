@@ -59,14 +59,15 @@ public class Calculadora extends javax.swing.JPanel {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         jLabel2.setText("Calculadora");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
 
-        tfResultado.setFont(new java.awt.Font("Segoe UI Semibold", 0, 48)); // NOI18N
+        tfResultado.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         tfResultado.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         tfResultado.setText("0");
         tfResultado.addActionListener(new java.awt.event.ActionListener() {
@@ -76,165 +77,185 @@ public class Calculadora extends javax.swing.JPanel {
         });
         jPanel2.add(tfResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 364, 153));
 
+        btnPorcentaje.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         btnPorcentaje.setText("%");
         btnPorcentaje.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPorcentajeActionPerformed(evt);
             }
         });
-        jPanel2.add(btnPorcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 70, 40));
+        jPanel2.add(btnPorcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 70, 40));
 
+        btnce.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         btnce.setText("ce");
         btnce.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnceActionPerformed(evt);
             }
         });
-        jPanel2.add(btnce, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, -1, 40));
+        jPanel2.add(btnce, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, -1, 40));
 
+        btncc.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         btncc.setText("cc");
         btncc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnccActionPerformed(evt);
             }
         });
-        jPanel2.add(btncc, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, 80, 40));
+        jPanel2.add(btncc, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 80, 40));
 
+        btnDivision.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         btnDivision.setText("/");
         btnDivision.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDivisionActionPerformed(evt);
             }
         });
-        jPanel2.add(btnDivision, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, 80, 40));
+        jPanel2.add(btnDivision, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 80, 40));
 
+        btn7.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         btn7.setText("7");
         btn7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn7ActionPerformed(evt);
             }
         });
-        jPanel2.add(btn7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 70, 40));
+        jPanel2.add(btn7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 70, 40));
 
+        btn8.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         btn8.setText("8");
         btn8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn8ActionPerformed(evt);
             }
         });
-        jPanel2.add(btn8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, 70, 40));
+        jPanel2.add(btn8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 70, 40));
 
+        btn9.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         btn9.setText("9");
         btn9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn9ActionPerformed(evt);
             }
         });
-        jPanel2.add(btn9, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 80, 40));
+        jPanel2.add(btn9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, 80, 40));
 
+        btnMultiplicacion.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         btnMultiplicacion.setText("x");
         btnMultiplicacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMultiplicacionActionPerformed(evt);
             }
         });
-        jPanel2.add(btnMultiplicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, 80, 40));
+        jPanel2.add(btnMultiplicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, 80, 40));
 
+        btnResta.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         btnResta.setText("-");
         btnResta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRestaActionPerformed(evt);
             }
         });
-        jPanel2.add(btnResta, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 420, 80, 40));
+        jPanel2.add(btnResta, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 420, 80, 40));
 
+        btn4.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         btn4.setText("4");
         btn4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn4ActionPerformed(evt);
             }
         });
-        jPanel2.add(btn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 70, 40));
+        jPanel2.add(btn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 70, 40));
 
+        btn5.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         btn5.setText("5");
         btn5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn5ActionPerformed(evt);
             }
         });
-        jPanel2.add(btn5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 70, 40));
+        jPanel2.add(btn5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 420, 70, 40));
 
+        btn6.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         btn6.setText("6");
         btn6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn6ActionPerformed(evt);
             }
         });
-        jPanel2.add(btn6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, 80, 40));
+        jPanel2.add(btn6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 80, 40));
 
+        btnSuma.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         btnSuma.setText("+");
         btnSuma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSumaActionPerformed(evt);
             }
         });
-        jPanel2.add(btnSuma, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 490, 80, 40));
+        jPanel2.add(btnSuma, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 490, 80, 40));
 
+        btn1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         btn1.setText("1");
         btn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn1ActionPerformed(evt);
             }
         });
-        jPanel2.add(btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 70, 40));
+        jPanel2.add(btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, 70, 40));
 
+        btn2.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         btn2.setText("2");
         btn2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn2ActionPerformed(evt);
             }
         });
-        jPanel2.add(btn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 490, 70, 40));
+        jPanel2.add(btn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 490, 70, 40));
 
+        btn3.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         btn3.setText("3");
         btn3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn3ActionPerformed(evt);
             }
         });
-        jPanel2.add(btn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 490, 80, 40));
+        jPanel2.add(btn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 490, 80, 40));
 
+        btnIgual.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         btnIgual.setText("=");
         btnIgual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIgualActionPerformed(evt);
             }
         });
-        jPanel2.add(btnIgual, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 550, 80, 40));
+        jPanel2.add(btnIgual, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 550, 80, 40));
 
+        btnArroba.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         btnArroba.setText("@");
         btnArroba.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnArrobaActionPerformed(evt);
             }
         });
-        jPanel2.add(btnArroba, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 70, 40));
+        jPanel2.add(btnArroba, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 550, 70, 40));
 
+        btn0.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         btn0.setText("0");
         btn0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn0ActionPerformed(evt);
             }
         });
-        jPanel2.add(btn0, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 550, 70, 40));
+        jPanel2.add(btn0, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 550, 70, 40));
 
+        btnPunto.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         btnPunto.setText(".");
         btnPunto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPuntoActionPerformed(evt);
             }
         });
-        jPanel2.add(btnPunto, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 550, 80, 40));
+        jPanel2.add(btnPunto, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 550, 80, 40));
 
         jPanel4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 680));
 
@@ -260,23 +281,33 @@ public class Calculadora extends javax.swing.JPanel {
 
     private void operacion(String sentencia){
         if (sentencia.contains("+")) {
-            this.numeroOperado(sentencia, "\\+");
+            this.numeroOperado(sentencia, "\\+", "+");
             
         } else if (sentencia.contains("-")){
-            this.numeroOperado(sentencia, "-");
+            this.numeroOperado(sentencia, "-", "-");
             
         }else if (sentencia.contains("/")){
-            this.numeroOperado(sentencia, "/");
+            this.numeroOperado(sentencia, "/", "/");
             
         }else if (sentencia.contains("*")){
-            this.numeroOperado(sentencia, "\\*");
+            this.numeroOperado(sentencia, "\\*", "*");
         }
     }
     
-    public void numeroOperado(String sentencia, String Simbolo){
-        String[] numero =  sentencia.split(Simbolo);
-        float primerNumero = Float.parseFloat(numero[0]) ;
-        float SegundoNumero = Float.parseFloat(numero[1]) ;
+    public void numeroOperado(String sentencia, String Simbolo, String valida){
+        String[] cortar =  sentencia.split("");
+        String[] numero;
+        float primerNumero = 0;
+        float SegundoNumero = 0;
+        if(cortar[0].contains(valida)){
+            numero =  sentencia.substring(1,sentencia.length()).split(Simbolo);
+            primerNumero = Float.parseFloat(numero[0])-Float.parseFloat(numero[0])*2 ;
+            SegundoNumero = 0 ;
+        }else{ 
+            numero = sentencia.split(Simbolo);
+            primerNumero = Float.parseFloat(numero[0]) ;
+            SegundoNumero = Float.parseFloat(numero[1]) ;
+        }
         float resultado = 0;
         if (Simbolo.equals("\\+")) {
             resultado = primerNumero + SegundoNumero;
@@ -304,12 +335,13 @@ public class Calculadora extends javax.swing.JPanel {
 
     private void btnceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnceActionPerformed
         // TODO add your handling code here:
-        this.tfResultado.setText(this.tfResultado.getText()+"ce");
+        int tamanio = this.tfResultado.getText().length();
+        this.tfResultado.setText(this.tfResultado.getText().substring(0,tamanio - 1));
     }//GEN-LAST:event_btnceActionPerformed
 
     private void btnccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnccActionPerformed
         // TODO add your handling code here:
-        this.tfResultado.setText(this.tfResultado.getText()+"cc");
+        this.tfResultado.setText("");
     }//GEN-LAST:event_btnccActionPerformed
 
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
@@ -374,6 +406,7 @@ public class Calculadora extends javax.swing.JPanel {
 
     private void btnSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumaActionPerformed
         // TODO add your handling code here:
+        this.operacion(this.tfResultado.getText());
         this.tfResultado.setText(this.tfResultado.getText()+"+");
     }//GEN-LAST:event_btnSumaActionPerformed
 
@@ -385,16 +418,19 @@ public class Calculadora extends javax.swing.JPanel {
 
     private void btnMultiplicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultiplicacionActionPerformed
         // TODO add your handling code here:
-        this.tfResultado.setText(this.tfResultado.getText()+"x");
+        this.operacion(this.tfResultado.getText());
+        this.tfResultado.setText(this.tfResultado.getText() + "*");
     }//GEN-LAST:event_btnMultiplicacionActionPerformed
 
     private void btnDivisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDivisionActionPerformed
         // TODO add your handling code here:
+        this.operacion(this.tfResultado.getText());
         this.tfResultado.setText(this.tfResultado.getText()+"/");
     }//GEN-LAST:event_btnDivisionActionPerformed
 
     private void btnRestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaActionPerformed
         // TODO add your handling code here:
+        this.operacion(this.tfResultado.getText());
         this.tfResultado.setText(this.tfResultado.getText()+"-");
     }//GEN-LAST:event_btnRestaActionPerformed
 

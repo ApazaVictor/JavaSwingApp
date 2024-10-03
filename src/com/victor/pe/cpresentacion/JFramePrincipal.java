@@ -28,7 +28,6 @@ public class JFramePrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         Principal = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuCalculadora = new javax.swing.JMenu();
@@ -39,29 +38,8 @@ public class JFramePrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Aplicacion en Java Swing");
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout PrincipalLayout = new javax.swing.GroupLayout(Principal);
-        Principal.setLayout(PrincipalLayout);
-        PrincipalLayout.setHorizontalGroup(
-            PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1200, Short.MAX_VALUE)
-        );
-        PrincipalLayout.setVerticalGroup(
-            PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        Principal.setBackground(new java.awt.Color(255, 255, 255));
+        Principal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jMenuBar1.setOpaque(true);
 
@@ -94,16 +72,12 @@ public class JFramePrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(Principal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(Principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -112,6 +86,13 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
     private void btMenuContadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMenuContadorActionPerformed
         // TODO add your handling code here:
+        Contador con = new Contador();
+        con.setSize(1200, 700);
+        con.setLocation(0, 0);
+        Principal.removeAll();
+        Principal.add(con,BorderLayout.CENTER);
+        Principal.revalidate();
+        Principal.repaint();
     }//GEN-LAST:event_btMenuContadorActionPerformed
 
     private void btMenuCalculadoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMenuCalculadoraActionPerformed
@@ -166,6 +147,5 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuCalculadora;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
