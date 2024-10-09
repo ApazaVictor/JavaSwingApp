@@ -4,6 +4,8 @@
  */
 package com.victor.pe.cmodelo;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -16,7 +18,7 @@ public class TipoDocumento {
     private String sigla;
     private String estado;
     private int orden;
-    //private Date fecha;
+    private Date fechaActualiza;
 
     /*public TipoDocumento(int idTipoDocumento, String nombre, String sigla, String estado, int orden) {
         this.idTipoDocumento = idTipoDocumento;
@@ -26,6 +28,21 @@ public class TipoDocumento {
         this.orden = orden;
     }*/
 
+    public String getFechaActualiza() {
+    SimpleDateFormat dateFormat = new SimpleDateFormat ("dd-MM-yy");
+    return dateFormat.format(fechaActualiza);    
+    }
+
+    public void setFechaActualiza(String fechaActualiza)throws ParseException {
+    SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yy");
+    this.fechaActualiza = dateFormat.parse(fechaActualiza);
+    }
+
+
+    
+    
+   
+  
     public int getIdTipoDocumento() {
         return idTipoDocumento;
     }
