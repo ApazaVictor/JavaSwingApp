@@ -26,12 +26,12 @@ public class Test {
     }*/
     
     public void Modificar() throws SQLException, ParseException{
-       td.setIdTipoDocumento(1);
-       td.setNombre("victor");
-       td.setEstado("1");
-       td.setOrden(1);
-       td.setSigla("v");
-       td.setFechaActualiza("04-12-2022");
+       td.setIdTipoDocumento(3);
+       td.setNombre("Hugo");
+       td.setEstado("Bien");
+       td.setOrden(3);
+       td.setSigla("Ok");
+       td.setFechaActualiza("09-10-2024");
        tdbo.ModificarTipoDocumento(td);
     }
     
