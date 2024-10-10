@@ -37,11 +37,7 @@ public class TipoDocumento {
     SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yy");
     this.fechaActualiza = dateFormat.parse(fechaActualiza);
     }
-
-
-    
-    
-   
+          
   
     public int getIdTipoDocumento() {
         return idTipoDocumento;

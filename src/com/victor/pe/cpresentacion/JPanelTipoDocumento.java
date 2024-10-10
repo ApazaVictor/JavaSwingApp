@@ -8,6 +8,10 @@ import com.victor.pe.cmodelo.TipoDocumento;
 import com.victor.pe.cnegocio.TipoDocumentoBO;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+//import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,6 +20,7 @@ import java.text.ParseException;
 public class JPanelTipoDocumento extends javax.swing.JPanel {
     TipoDocumentoBO tdbo = new TipoDocumentoBO();
     TipoDocumento td = new TipoDocumento();
+    
     
     
     //instanciar o invocar
@@ -27,6 +32,45 @@ public class JPanelTipoDocumento extends javax.swing.JPanel {
     public JPanelTipoDocumento() {
         initComponents();        
     }
+  /*private void cargarTabla() {
+    try {
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("ID");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Sigla");
+        modelo.addColumn("Estado");
+        modelo.addColumn("Orden");
+        modelo.addColumn("Fecha Actualiza");
+
+        TablaTipoDocumento.setModel(modelo);
+
+        // Obtener la lista de TipoDocumentos
+        List<TipoDocumento> lista = tdbo.listarTipoDocumento();
+        if (lista == null || lista.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No se encontraron documentos.");
+            return;
+        }
+
+        // Agregar las filas a la tabla
+        for (TipoDocumento t : lista) {
+            Object[] fila = new Object[6];
+            fila[0] = t.getIdTipoDocumento();
+            fila[1] = t.getNombre();
+            fila[2] = t.getSigla();
+            fila[3] = t.getEstado();
+            fila[4] = t.getOrden();
+            fila[5] = t.getFechaActualiza();
+
+            modelo.addRow(fila);
+        }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al cargar la tabla: " + e.getMessage());
+    }
+}*/
+
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -43,16 +87,16 @@ public class JPanelTipoDocumento extends javax.swing.JPanel {
         CRUDTipoDocumento = new javax.swing.JLabel();
         btnEliminar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
-        TextNombre = new javax.swing.JTextField();
+        TxtNombre = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        TextSigla = new javax.swing.JTextField();
+        TxtSigla = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        TextFechaActualiza = new javax.swing.JTextField();
+        TxtFechaActualiza = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        TextOrden = new javax.swing.JTextField();
-        TextEstado = new javax.swing.JTextField();
+        TxtOrden = new javax.swing.JTextField();
+        TxtEstado = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
@@ -79,7 +123,7 @@ public class JPanelTipoDocumento extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(TablaTipoDocumento);
 
-        TipoDocumento.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 140, -1, -1));
+        TipoDocumento.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 150, -1, 360));
 
         CRUDTipoDocumento.setFont(new java.awt.Font("Showcard Gothic", 0, 24)); // NOI18N
         CRUDTipoDocumento.setText("CRUD Tipo Documento");
@@ -88,20 +132,30 @@ public class JPanelTipoDocumento extends javax.swing.JPanel {
         btnEliminar.setBackground(new java.awt.Color(255, 51, 51));
         btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminar.setText("Eliminar");
-        TipoDocumento.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 550, -1, -1));
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        TipoDocumento.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 530, -1, -1));
 
         btnModificar.setBackground(new java.awt.Color(102, 204, 255));
         btnModificar.setText("Modificar");
-        TipoDocumento.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 550, -1, -1));
-
-        TextNombre.setForeground(new java.awt.Color(204, 204, 204));
-        TextNombre.setBorder(null);
-        TextNombre.addActionListener(new java.awt.event.ActionListener() {
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextNombreActionPerformed(evt);
+                btnModificarActionPerformed(evt);
             }
         });
-        TipoDocumento.add(TextNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 290, 20));
+        TipoDocumento.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 530, -1, -1));
+
+        TxtNombre.setForeground(new java.awt.Color(204, 204, 204));
+        TxtNombre.setBorder(null);
+        TxtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtNombreActionPerformed(evt);
+            }
+        });
+        TipoDocumento.add(TxtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 290, 20));
 
         jLabel1.setText("Nombre");
         TipoDocumento.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, -1, -1));
@@ -109,16 +163,16 @@ public class JPanelTipoDocumento extends javax.swing.JPanel {
         jLabel2.setText("Sigla");
         TipoDocumento.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
 
-        TextSigla.setForeground(new java.awt.Color(204, 204, 204));
-        TextSigla.setBorder(null);
-        TipoDocumento.add(TextSigla, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 290, 20));
+        TxtSigla.setForeground(new java.awt.Color(204, 204, 204));
+        TxtSigla.setBorder(null);
+        TipoDocumento.add(TxtSigla, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 290, 20));
 
         jLabel5.setText("Fecha Actualiza");
         TipoDocumento.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, -1, -1));
 
-        TextFechaActualiza.setForeground(new java.awt.Color(204, 204, 204));
-        TextFechaActualiza.setBorder(null);
-        TipoDocumento.add(TextFechaActualiza, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 490, 290, 20));
+        TxtFechaActualiza.setForeground(new java.awt.Color(204, 204, 204));
+        TxtFechaActualiza.setBorder(null);
+        TipoDocumento.add(TxtFechaActualiza, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 490, 290, 20));
 
         jLabel3.setText("Orden");
         TipoDocumento.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, -1, -1));
@@ -126,13 +180,13 @@ public class JPanelTipoDocumento extends javax.swing.JPanel {
         jLabel4.setText("Estado");
         TipoDocumento.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, -1, -1));
 
-        TextOrden.setForeground(new java.awt.Color(204, 204, 204));
-        TextOrden.setBorder(null);
-        TipoDocumento.add(TextOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, 290, 20));
+        TxtOrden.setForeground(new java.awt.Color(204, 204, 204));
+        TxtOrden.setBorder(null);
+        TipoDocumento.add(TxtOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, 290, 20));
 
-        TextEstado.setForeground(new java.awt.Color(204, 204, 204));
-        TextEstado.setBorder(null);
-        TipoDocumento.add(TextEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 290, 20));
+        TxtEstado.setForeground(new java.awt.Color(204, 204, 204));
+        TxtEstado.setBorder(null);
+        TipoDocumento.add(TxtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 290, 20));
 
         jSeparator1.setBackground(new java.awt.Color(51, 51, 51));
         jSeparator1.setForeground(new java.awt.Color(51, 51, 51));
@@ -184,37 +238,111 @@ public class JPanelTipoDocumento extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TextNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextNombreActionPerformed
+    private void TxtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextNombreActionPerformed
+    }//GEN-LAST:event_TxtNombreActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
         try {
-            td.setNombre(TextNombre.getText());
-            td.setEstado(TextEstado.getText());
-            td.setOrden(Integer.parseInt(TextEstado.getText()));
-            td.setSigla(TextSigla.getText());
-            td.setFechaActualiza(TextFechaActualiza.getText());
-            tdbo.agregarTipoDocumento(td);
+            td.setNombre(TxtNombre.getText());
+            td.setEstado(TxtEstado.getText());
+            td.setOrden(Integer.parseInt(TxtOrden.getText()));
+            td.setSigla(TxtSigla.getText());
+            td.setFechaActualiza(TxtFechaActualiza.getText());          
+            tdbo.agregarTipoDocumento(td); 
+            JOptionPane.showMessageDialog(null, ":) se guardo corectamente");
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: al guardar Tipo documento ");
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-            
+            TxtNombre.setText("");
+            TxtEstado.setText("");
+            TxtOrden.setText("");
+            TxtSigla.setText("");
+            //txtFechaRegistro.setText("");
+            TxtFechaActualiza.setText("");
     }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        // TODO add your handling code here:                                            
+    /*try {
+        // Obtener la fila seleccionada de la tabla
+        int selectedRow = TablaTipoDocumento.getSelectedRow();
+        if (selectedRow != -1) {
+            // Obtener el ID del documento seleccionado
+            String id = TablaTipoDocumento.getValueAt(selectedRow, 0).toString();
+            
+            // Obtener el objeto TipoDocumento a través de su ID
+            TipoDocumento td = tdbo.getTipoDocumentoById(Integer.parseInt(id));
+            
+            // Actualizar los valores de td con los datos ingresados en los campos de texto
+            td.setNombre(TxtNombre.getText());
+            td.setSigla(TxtSigla.getText());
+            td.setOrden(Integer.parseInt(TxtOrden.getText()));
+            td.setEstado(TxtEstado.getText());
+            td.setFechaActualiza(TxtFechaActualiza.getText());
+            
+            // Llamar al método para modificar el TipoDocumento en la base de datos
+            tdbo.ModificarTipoDocumento(td);
+            
+            // Mensaje de éxito
+            JOptionPane.showMessageDialog(null, "Tipo documento modificado correctamente");
+            
+            // Refrescar la tabla (reemplazar con el método que cargas la tabla)
+            cargarTabla();
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione un tipo de documento para modificar");
+        }
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error al modificar tipo documento: " + e.getMessage());
+    }
+}*/
+
+
+    }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:                                            
+    /*try {
+        // Obtener la fila seleccionada de la tabla
+        int selectedRow = TablaTipoDocumento.getSelectedRow();
+        if (selectedRow != -1) {
+            // Obtener el ID del documento seleccionado
+            String id = TablaTipoDocumento.getValueAt(selectedRow, 0).toString();
+            
+            // Obtener el objeto TipoDocumento a través de su ID
+            TipoDocumento td = tdbo.getTipoDocumentoById(Integer.parseInt(id));
+            
+            // Eliminar el TipoDocumento de la base de datos
+            tdbo.eliminarTipoDocumento(td);
+            
+            // Eliminar la fila de la tabla (corregido el error tipográfico)
+            ((DefaultTableModel) TablaTipoDocumento.getModel()).removeRow(selectedRow);
+            
+            // Mensaje de confirmación
+            JOptionPane.showMessageDialog(null, "Tipo documento eliminado correctamente");
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione un tipo de documento para eliminar");
+        }
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error al eliminar tipo documento: " + e.getMessage());
+    }*/
+
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CRUDTipoDocumento;
     private javax.swing.JTable TablaTipoDocumento;
-    private javax.swing.JTextField TextEstado;
-    private javax.swing.JTextField TextFechaActualiza;
-    private javax.swing.JTextField TextNombre;
-    private javax.swing.JTextField TextOrden;
-    private javax.swing.JTextField TextSigla;
     private javax.swing.JPanel TipoDocumento;
+    private javax.swing.JTextField TxtEstado;
+    private javax.swing.JTextField TxtFechaActualiza;
+    private javax.swing.JTextField TxtNombre;
+    private javax.swing.JTextField TxtOrden;
+    private javax.swing.JTextField TxtSigla;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnLimpiar;
