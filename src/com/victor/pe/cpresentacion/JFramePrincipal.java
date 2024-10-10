@@ -34,6 +34,10 @@ public class JFramePrincipal extends javax.swing.JFrame {
         btMenuCalculadora = new javax.swing.JMenuItem();
         btMenuContador = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
+        btnTipoDocumento = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Aplicacion en Java Swing");
@@ -66,18 +70,36 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jMenu2.setText("Edit");
         jMenuBar1.add(jMenu2);
 
+        jMenu1.setText("Mantenimiento");
+
+        btnTipoDocumento.setText("TipoDocumento");
+        btnTipoDocumento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTipoDocumentoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(btnTipoDocumento);
+
+        jMenuItem2.setText("jMenuItem2");
+        jMenu1.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu3.setText("jMenu3");
+        jMenuBar1.add(jMenu3);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Principal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Principal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1200, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(Principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Principal, javax.swing.GroupLayout.DEFAULT_SIZE, 671, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -104,6 +126,16 @@ public class JFramePrincipal extends javax.swing.JFrame {
         Principal.revalidate();
         Principal.repaint();
     }//GEN-LAST:event_btMenuCalculadoraActionPerformed
+
+    private void btnTipoDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTipoDocumentoActionPerformed
+        JPanelTipoDocumento td = new JPanelTipoDocumento();
+        td.setSize(1200, 700);
+        td.setLocation(0, 0);
+        Principal.removeAll();
+        Principal.add(td,BorderLayout.CENTER);
+        Principal.revalidate();
+        Principal.repaint();
+    }//GEN-LAST:event_btnTipoDocumentoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,8 +176,12 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel Principal;
     private javax.swing.JMenuItem btMenuCalculadora;
     private javax.swing.JMenuItem btMenuContador;
+    private javax.swing.JMenuItem btnTipoDocumento;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuCalculadora;
+    private javax.swing.JMenuItem jMenuItem2;
     // End of variables declaration//GEN-END:variables
 }
