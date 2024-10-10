@@ -28,7 +28,7 @@ public class TipoDocumentoBO {
     public String eliminarTipoDocumento(TipoDocumento tipoDocumento) throws SQLException{
         Connection c = Conexion.getConnection();
         try {
-            mensaje = tdd.agregarTipoDocumento(c, tipoDocumento);
+            mensaje = tdd.eliminarTipoDocumento(c, tipoDocumento);
             c.commit();
         } catch (Exception e) {
             c.rollback();
