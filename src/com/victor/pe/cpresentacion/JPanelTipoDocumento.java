@@ -21,13 +21,7 @@ public class JPanelTipoDocumento extends javax.swing.JPanel {
     TipoDocumentoBO tdbo = new TipoDocumentoBO();
     TipoDocumento td = new TipoDocumento();
     
-    
-<<<<<<< Updated upstream
-    
-    //instanciar o invocar
-    //
-=======
->>>>>>> Stashed changes
+   
 
     public JPanelTipoDocumento() throws SQLException {
         initComponents();
@@ -37,46 +31,7 @@ public class JPanelTipoDocumento extends javax.swing.JPanel {
     public void ListarTipoDocumento() throws SQLException{
         tdbo.ListarTipoDocumento(TablaTipoDocumento);
     }
-  /*private void cargarTabla() {
-    try {
-        DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("ID");
-        modelo.addColumn("Nombre");
-        modelo.addColumn("Sigla");
-        modelo.addColumn("Estado");
-        modelo.addColumn("Orden");
-        modelo.addColumn("Fecha Actualiza");
-
-        TablaTipoDocumento.setModel(modelo);
-
-        // Obtener la lista de TipoDocumentos
-        List<TipoDocumento> lista = tdbo.listarTipoDocumento();
-        if (lista == null || lista.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "No se encontraron documentos.");
-            return;
-        }
-
-        // Agregar las filas a la tabla
-        for (TipoDocumento t : lista) {
-            Object[] fila = new Object[6];
-            fila[0] = t.getIdTipoDocumento();
-            fila[1] = t.getNombre();
-            fila[2] = t.getSigla();
-            fila[3] = t.getEstado();
-            fila[4] = t.getOrden();
-            fila[5] = t.getFechaActualiza();
-
-            modelo.addRow(fila);
-        }
-
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al cargar la tabla: " + e.getMessage());
-    }
-}*/
-
-
-
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
