@@ -11,14 +11,15 @@ public class Test {
     TipoDocumentoBO tdbo = new TipoDocumentoBO();
     TipoDocumento td = new TipoDocumento();
     
-    public void insertar() throws SQLException, ParseException{
+    /*public void insertar() throws SQLException, ParseException{
+       td.setIdTipoDocumento(3);
        td.setNombre("Registro Nacional de identidad");
-       td.setEstado("1");
-       td.setOrden(1);
+       td.setEstado("Mal");
+       td.setOrden(3);
        td.setSigla("DNI");
-       td.setFechaActualiza("12-12-2012");
+       td.setFechaActualiza("10-12-2020");
        tdbo.agregarTipoDocumento(td);
-    } 
+    }*/
     
     /*public void eliminar() throws SQLException, ParseException{
        td.setIdTipoDocumento(1);
@@ -26,11 +27,11 @@ public class Test {
     }*/
     
     public void Modificar() throws SQLException, ParseException{
-       td.setIdTipoDocumento(3);
+       td.setIdTipoDocumento(4);
        td.setNombre("Hugo");
        td.setEstado("Bien");
-       td.setOrden(3);
-       td.setSigla("Ok");
+       td.setOrden(4);
+       td.setSigla("");
        td.setFechaActualiza("09-10-2024");
        tdbo.ModificarTipoDocumento(td);
     }

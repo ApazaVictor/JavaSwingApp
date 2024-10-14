@@ -5,6 +5,9 @@
 package com.victor.pe.cpresentacion;
 
 import java.awt.BorderLayout;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -36,12 +39,16 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         btnTipoDocumento = new javax.swing.JMenuItem();
+<<<<<<< Updated upstream
+=======
+        jMenuItem2 = new javax.swing.JMenuItem();
+>>>>>>> Stashed changes
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Aplicacion en Java Swing");
 
         Principal.setBackground(new java.awt.Color(255, 255, 255));
-        Principal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Principal.setLayout(new java.awt.BorderLayout());
 
         jMenuBar1.setOpaque(true);
 
@@ -120,13 +127,17 @@ public class JFramePrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btMenuCalculadoraActionPerformed
 
     private void btnTipoDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTipoDocumentoActionPerformed
-        JPanelTipoDocumento td = new JPanelTipoDocumento();
-        td.setSize(1200, 700);
-        td.setLocation(0, 0);
-        Principal.removeAll();
-        Principal.add(td,BorderLayout.CENTER);
-        Principal.revalidate();
-        Principal.repaint();
+        try {
+            JPanelTipoDocumento td = new JPanelTipoDocumento();
+            td.setSize(1200, 700);
+            td.setLocation(0, 0);
+            Principal.removeAll();
+            Principal.add(td,BorderLayout.CENTER);
+            Principal.revalidate();
+            Principal.repaint();
+        } catch (SQLException ex) {
+            Logger.getLogger(JFramePrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnTipoDocumentoActionPerformed
 
     /**

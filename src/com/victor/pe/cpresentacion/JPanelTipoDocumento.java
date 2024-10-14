@@ -22,15 +22,20 @@ public class JPanelTipoDocumento extends javax.swing.JPanel {
     TipoDocumento td = new TipoDocumento();
     
     
+<<<<<<< Updated upstream
     
     //instanciar o invocar
     //
+=======
+>>>>>>> Stashed changes
 
-    /**
-     * Creates new form JPanelTipoDocumento
-     */
-    public JPanelTipoDocumento() {
-        initComponents();        
+    public JPanelTipoDocumento() throws SQLException {
+        initComponents();
+        ListarTipoDocumento();        
+    }
+    
+    public void ListarTipoDocumento() throws SQLException{
+        tdbo.ListarTipoDocumento(TablaTipoDocumento);
     }
   /*private void cargarTabla() {
     try {

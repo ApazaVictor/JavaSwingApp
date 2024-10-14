@@ -7,10 +7,14 @@ import com.victor.pe.db.Conexion;
 //import java.awt.List;
 import java.sql.Connection;
 import java.sql.SQLException;
+<<<<<<< Updated upstream
 import java.sql.PreparedStatement;
 //import java.sql.ResultSet;
 //import java.text.ParseException;
 
+=======
+import javax.swing.JTable;
+>>>>>>> Stashed changes
 
 
 public class TipoDocumentoBO {
@@ -42,6 +46,7 @@ public class TipoDocumentoBO {
         }
         return mensaje;
     }
+    
     public String ModificarTipoDocumento(TipoDocumento tipoDocumento) throws SQLException{
         Connection c = Conexion.getConnection();
         try {
@@ -55,6 +60,7 @@ public class TipoDocumentoBO {
         return mensaje;
     }
     
+<<<<<<< Updated upstream
     /*public TipoDocumento getTipoDocumentoById(int id) throws SQLException, ParseException {
     TipoDocumento tipoDoc = null;
     String sql = "SELECT id_tipo_documento, nombre, sigla, estado, orden, fecha_actualiza FROM tipo_documento WHERE id_tipo_documento = ?";
@@ -114,4 +120,17 @@ public class TipoDocumentoBO {
 
 
            
+=======
+    public void ListarTipoDocumento(JTable table) throws SQLException{
+        Connection c = Conexion.getConnection();
+        try {
+            tdd.ListarTipoDocumento(c, table);
+            c.commit();
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            c.close();
+        }
+    }
+>>>>>>> Stashed changes
 }
