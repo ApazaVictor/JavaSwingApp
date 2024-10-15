@@ -65,7 +65,7 @@ public class Calculadora extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         jLabel2.setText("Calculadora");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
 
         tfResultado.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         tfResultado.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -75,7 +75,7 @@ public class Calculadora extends javax.swing.JPanel {
                 tfResultadoActionPerformed(evt);
             }
         });
-        jPanel2.add(tfResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 364, 153));
+        jPanel2.add(tfResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 364, 153));
 
         btnPorcentaje.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         btnPorcentaje.setText("%");

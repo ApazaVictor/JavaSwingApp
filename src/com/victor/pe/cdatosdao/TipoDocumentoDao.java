@@ -5,6 +5,11 @@ package com.victor.pe.cdatosdao;
 import com.victor.pe.cmodelo.TipoDocumento;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import java.sql.Statement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 
 
 public class TipoDocumentoDao {
@@ -60,7 +65,7 @@ public class TipoDocumentoDao {
         
     }
     
-    //Tercer metodo = Modificar Tipo Documento
+    //Tercer Metodo = Modificar Tipo Documento
     public String ModificarTipoDocumento(Connection conn, TipoDocumento tipoDocumento){
         PreparedStatement ps = null;
         String sql = "UPDATE TIPO_DOCUMENTO"
@@ -87,5 +92,43 @@ public class TipoDocumentoDao {
         return mensaje;
         
     }
-    //
+        //Cuarto Metodo = Listar Tipo Documento.
+    public void listarTipoDocumento(Connection conn, JTable table){
+        System.out.println("aquiiii");
+        DefaultTableModel model;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        
+        String[] columnas = {"ID","NOMBRE","SIGLA","ESTADO","ORDEN","FECHA_ACTUALIZA"};
+        model = new DefaultTableModel(null,columnas);
+        
+        String sql = "SELECT * FROM TIPO_DOCUMENTO";
+        String[] datosTP = new String[6];
+        
+        try {
+            statement = conn.createStatement();
+            resultSet = statement.executeQuery(sql);
+            while(resultSet.next()){
+                TipoDocumento td = new TipoDocumento();
+                td.setIdTipoDocumento(resultSet.getInt("ID_TIPO_DOCUMENTO"));
+                td.setNombre(resultSet.getString("NOMBRE"));
+                td.setEstado(resultSet.getString("ESTADO"));
+                td.setOrden(resultSet.getInt("ORDEN"));
+                td.setSigla(resultSet.getString("SIGLA"));
+                td.setFechaActualiza(resultSet.getString("FECHA_ACTUALIZA"));
+                
+                datosTP[0] = td.getIdTipoDocumento()+"";
+                datosTP[1] = td.getNombre()+"";
+                datosTP[2] = td.getSigla()+"";
+                datosTP[3] = td.getEstado()+"";
+                datosTP[4] = td.getOrden()+"";
+                datosTP[5] = td.getFechaActualiza()+"";
+                model.addRow(datosTP);
+            }
+            table.setModel(model);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: "+e.getMessage());
+            System.out.println(e.getMessage());
+        }
+    }
 }

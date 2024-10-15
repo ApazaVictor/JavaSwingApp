@@ -2,7 +2,6 @@
 package com.victor.pe.db;
 
 import java.sql.Connection;
-
 import java.sql.DriverManager;
 
 public class Conexion {
@@ -13,8 +12,8 @@ public class Conexion {
     private static String url = "jdbc:oracle:thin:@localhost:1521:XE";
 
   
-  public static Connection getConnection(){
-    try {
+    public static Connection getConnection(){
+       try {
 
       //cargar el controlador jdvc
       Class.forName("oracle.jdbc.OracleDriver");
@@ -23,38 +22,33 @@ public class Conexion {
       con = DriverManager.getConnection(url, usuario, contraseña);
       con.setAutoCommit(false);
       
-      System.out.println("------------------------");
-      System.out.println("victor");
+        System.out.println("------------------------");
+        System.out.println("victor");
             
-      if(con != null){
+        if(con != null){
         System.out.println("se a conectado");
       }else {
         System.out.println("error conexion fallida");
       }
       
-    } catch (Exception e) {
+      } catch (Exception e) {
         System.out.println("Error, no se pudo desconectar"+e.getMessage());
 
+      }
+      return con;
+    };
 
-
-    }
-    return con;
-  };
-
-  public void closeConexion(){
-    try {
-
+    public void closeConexion(){
+      try {
       con.close();
       System.err.println("se a desconectado");
-
-
-
+      
     } catch (Exception e) {        
         System.out.println("Error, no se pudo desconectar"+e.getMessage());
     }
 
   }
-  public static void main (String[]args){
+    public static void main (String[]args){
      Conexion.getConnection();
 
   }

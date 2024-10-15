@@ -36,12 +36,15 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         btnTipoDocumento = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Aplicacion en Java Swing");
 
         Principal.setBackground(new java.awt.Color(255, 255, 255));
-        Principal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Principal.setLayout(new java.awt.BorderLayout());
 
         jMenuBar1.setOpaque(true);
 
@@ -78,7 +81,16 @@ public class JFramePrincipal extends javax.swing.JFrame {
         });
         jMenu1.add(btnTipoDocumento);
 
+        jMenuItem1.setText("Genero");
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("Persona");
+        jMenu1.add(jMenuItem2);
+
         jMenuBar1.add(jMenu1);
+
+        jMenu3.setText("Window");
+        jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
 
@@ -101,7 +113,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private void btMenuContadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMenuContadorActionPerformed
         // TODO add your handling code here:
         Contador con = new Contador();
-        con.setSize(1200, 700);
+        con.setSize(443, 536);
         con.setLocation(0, 0);
         Principal.removeAll();
         Principal.add(con,BorderLayout.CENTER);
@@ -111,7 +123,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
     private void btMenuCalculadoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMenuCalculadoraActionPerformed
         Calculadora cal = new Calculadora();
-        cal.setSize(1200, 700);
+        cal.setSize(413, 655);
         cal.setLocation(0, 0);
         Principal.removeAll();
         Principal.add(cal,BorderLayout.CENTER);
@@ -121,7 +133,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
     private void btnTipoDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTipoDocumentoActionPerformed
         JPanelTipoDocumento td = new JPanelTipoDocumento();
-        td.setSize(1200, 700);
+        td.setSize(1100, 600);
         td.setLocation(0, 0);
         Principal.removeAll();
         Principal.add(td,BorderLayout.CENTER);
@@ -171,7 +183,10 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnTipoDocumento;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuCalculadora;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     // End of variables declaration//GEN-END:variables
 }
