@@ -5,18 +5,17 @@ import com.victor.pe.cmodelo.TipoDocumento;
 import com.victor.pe.cnegocio.TipoDocumentoBO;
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.util.Date;
-
+//import java.util.Date;
 
 public class Test {
     TipoDocumentoBO tdbo = new  TipoDocumentoBO();
     TipoDocumento td = new TipoDocumento();
     
     public  void insertar() throws SQLException, ParseException{
-        td.setNombre("Registro Nacional de Identidad");
+        td.setNombre("jkasbdjhasbvd asfdbhsa dvhka");
         td.setEstado("1");
         td.setOrden(1);
-        td.setSigla("DNI");
+        td.setSigla("DNIA");
         //td.setFecha("12-12-12");
         td.setFechaActualiza("09-10-2024");
         tdbo.agregarTipoDocumento(td);
@@ -28,10 +27,10 @@ public class Test {
     }
     
     public  void modificar() throws SQLException, ParseException{
-        td.setNombre("Victor");
+        td.setNombre("Diego");
         td.setEstado("1");
         td.setOrden(1);
-        td.setSigla("V");
+        td.setSigla("D");
         //td.setFecha("12-12-12");
         td.setFechaActualiza("09-10-2024");
         td.setIdTipoDocumento(11);
@@ -46,7 +45,6 @@ public class Test {
         t.modificar();
     }
 }
-
 
 
     

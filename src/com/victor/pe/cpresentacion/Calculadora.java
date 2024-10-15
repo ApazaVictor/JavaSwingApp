@@ -75,7 +75,7 @@ public class Calculadora extends javax.swing.JPanel {
                 tfResultadoActionPerformed(evt);
             }
         });
-        jPanel2.add(tfResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 364, 153));
+        jPanel2.add(tfResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 364, 153));
 
         btnPorcentaje.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         btnPorcentaje.setText("%");
@@ -281,32 +281,32 @@ public class Calculadora extends javax.swing.JPanel {
 
     private void operacion(String sentencia){
         if (sentencia.contains("+")) {
-            this.numeroOperado(sentencia, "\\+", "+");
+            this.numeroOperado(sentencia, "\\+" ,"+");
             
         } else if (sentencia.contains("-")){
-            this.numeroOperado(sentencia, "-", "-");
+            this.numeroOperado(sentencia, "-","-");
             
         }else if (sentencia.contains("/")){
-            this.numeroOperado(sentencia, "/", "/");
+            this.numeroOperado(sentencia, "/" ,"/");
             
         }else if (sentencia.contains("*")){
-            this.numeroOperado(sentencia, "\\*", "*");
+            this.numeroOperado(sentencia, "\\*","*");
         }
     }
     
     public void numeroOperado(String sentencia, String Simbolo, String valida){
         String[] cortar =  sentencia.split("");
         String[] numero;
-        float primerNumero = 0;
+        float primerNumero =  0;
         float SegundoNumero = 0;
         if(cortar[0].contains(valida)){
             numero =  sentencia.substring(1,sentencia.length()).split(Simbolo);
             primerNumero = Float.parseFloat(numero[0])-Float.parseFloat(numero[0])*2 ;
             SegundoNumero = 0 ;
-        }else{ 
-            numero = sentencia.split(Simbolo);
+        }else{
+            numero =  sentencia.split(Simbolo);
             primerNumero = Float.parseFloat(numero[0]) ;
-            SegundoNumero = Float.parseFloat(numero[1]) ;
+            SegundoNumero = Float.parseFloat(numero[1]) ; 
         }
         float resultado = 0;
         if (Simbolo.equals("\\+")) {
@@ -320,8 +320,6 @@ public class Calculadora extends javax.swing.JPanel {
         }
         this.tfResultado.setText(String.valueOf(resultado));
     }
-
-
 
     private void tfResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfResultadoActionPerformed
         // TODO add your handling code here:
