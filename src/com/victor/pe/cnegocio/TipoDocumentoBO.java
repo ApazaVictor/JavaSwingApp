@@ -9,7 +9,6 @@ import java.sql.SQLException;
 import javax.swing.JTable;
 
 
-
 public class TipoDocumentoBO {
     private String mensaje;
     TipoDocumentoDao tdd = new TipoDocumentoDao();
@@ -39,6 +38,7 @@ public class TipoDocumentoBO {
         }
         return mensaje;
     }
+    
     public String ModificarTipoDocumento(TipoDocumento tipoDocumento) throws SQLException{
         Connection c = Conexion.getConnection();
         try {
@@ -51,13 +51,16 @@ public class TipoDocumentoBO {
         }
         return mensaje;
     }
-    public void listarTipoDocumento(JTable table){
+    
+    public void ListarTipoDocumento(JTable table) throws SQLException{
         Connection c = Conexion.getConnection();
-        tdd.listarTipoDocumento(c, table);
         try {
-            c.close();
+            tdd.listarTipoDocumento(c, table);
+            c.commit();
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
-        } 
+        } finally {
+            c.close();
+        }
     }
 }

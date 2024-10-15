@@ -85,21 +85,21 @@ public class TipoDocumentoDao {
             mensaje = "El tipo documento fue Modificado correctamente";
         
         }catch (Exception e) {
-            mensaje = "Alto error al actualizado tipo documento." + e.getMessage();
+            mensaje = "Alto error al actualizar tipo documento." + e.getMessage();
             System.out.println(e.getMessage());
 
         } 
         return mensaje;
         
     }
-        //Cuarto Metodo = Listar Tipo Documento.
+    //Cuarto Metodo - Listar Tipo Documento.
     public void listarTipoDocumento(Connection conn, JTable table){
         System.out.println("aquiiii");
         DefaultTableModel model;
         Statement statement = null;
         ResultSet resultSet = null;
         
-        String[] columnas = {"ID","NOMBRE","SIGLA","ESTADO","ORDEN","FECHA_ACTUALIZA"};
+        String[] columnas = {"ID","NOMBRE","SIGLA","ESTADO","ORDEN","FECHA"};
         model = new DefaultTableModel(null,columnas);
         
         String sql = "SELECT * FROM TIPO_DOCUMENTO";

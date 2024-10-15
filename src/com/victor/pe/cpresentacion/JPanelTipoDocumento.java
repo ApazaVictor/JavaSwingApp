@@ -12,6 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
 
+
 /**
  *
  * @author Soporte
@@ -20,15 +21,17 @@ public class JPanelTipoDocumento extends javax.swing.JPanel {
     TipoDocumentoBO tdbo = new TipoDocumentoBO();
     TipoDocumento td = new TipoDocumento();
     
-        public JPanelTipoDocumento() {
+   
+
+    public JPanelTipoDocumento() throws SQLException {
         initComponents();
-        listarTipoDocumento();
+        ListarTipoDocumento();        
     }
     
-        public void listarTipoDocumento(){
-        tdbo.listarTipoDocumento(TablaTipoDocumento);
+    public void ListarTipoDocumento() throws SQLException{
+        tdbo.ListarTipoDocumento(TablaTipoDocumento);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

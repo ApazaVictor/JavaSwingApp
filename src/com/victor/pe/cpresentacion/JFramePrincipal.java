@@ -3,8 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.victor.pe.cpresentacion;
-
+//victor
 import java.awt.BorderLayout;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -124,21 +127,25 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private void btMenuCalculadoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMenuCalculadoraActionPerformed
         Calculadora cal = new Calculadora();
         cal.setSize(413, 655);
-        cal.setLocation(0, 0);
+        cal.setLocation(0,0);
         Principal.removeAll();
-        Principal.add(cal,BorderLayout.CENTER);
+        Principal.add(cal, BorderLayout.CENTER);
         Principal.revalidate();
         Principal.repaint();
     }//GEN-LAST:event_btMenuCalculadoraActionPerformed
 
     private void btnTipoDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTipoDocumentoActionPerformed
-        JPanelTipoDocumento td = new JPanelTipoDocumento();
-        td.setSize(1100, 600);
-        td.setLocation(0, 0);
-        Principal.removeAll();
-        Principal.add(td,BorderLayout.CENTER);
-        Principal.revalidate();
-        Principal.repaint();
+        try {
+            JPanelTipoDocumento tp = new JPanelTipoDocumento();
+            tp.setSize(1100, 600);
+            tp.setLocation(0,0);
+            Principal.removeAll();
+            Principal.add(tp, BorderLayout.CENTER);
+            Principal.revalidate();
+            Principal.repaint();
+        } catch (SQLException ex) {
+            Logger.getLogger(JFramePrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnTipoDocumentoActionPerformed
 
     /**
