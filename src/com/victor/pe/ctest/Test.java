@@ -12,12 +12,13 @@ public class Test {
     TipoDocumento td = new TipoDocumento();
     
     public  void insertar() throws SQLException, ParseException{
-        td.setNombre("jkasbdjhasbvd asfdbhsa dvhka");
-        td.setEstado("1");
-        td.setOrden(1);
-        td.setSigla("DNIA");
+        td.setIdTipoDocumento(3);
+        td.setNombre("Hugo");
+        td.setEstado("2");
+        td.setOrden(2);
+        td.setSigla("H");
         //td.setFecha("12-12-12");
-        td.setFechaActualiza("09-10-2024");
+        td.setFechaActualiza("09-10-2010");
         tdbo.agregarTipoDocumento(td);
     }
     
@@ -27,10 +28,10 @@ public class Test {
     }
     
     public  void modificar() throws SQLException, ParseException{
-        td.setNombre("Diego");
+        td.setNombre("Victor");
         td.setEstado("1");
         td.setOrden(1);
-        td.setSigla("D");
+        td.setSigla("V");
         //td.setFecha("12-12-12");
         td.setFechaActualiza("09-10-2024");
         td.setIdTipoDocumento(11);
@@ -40,9 +41,9 @@ public class Test {
     
     public static void main(String[] args) throws SQLException, ParseException {
         Test t = new  Test();
-        //t.insertar();
+        t.insertar();
         //t.eliminar();
-        t.modificar();
+        //t.modificar();
     }
 }
 
