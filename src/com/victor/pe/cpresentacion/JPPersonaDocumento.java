@@ -4,6 +4,10 @@
  */
 package com.victor.pe.cpresentacion;
 
+import com.victor.pe.cmodelo.TipoDocumento;
+import com.victor.pe.cnegocio.TipoDocumentoBO;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Soporte
@@ -15,6 +19,15 @@ public class JPPersonaDocumento extends javax.swing.JPanel {
      */
     public JPPersonaDocumento() {
         initComponents();
+    }
+    
+    private void listarTipoDocumentoCombo(){
+        TipoDocumentoBO tdbo =new TipoDocumentoBO();
+        
+        for(TipoDocumento item : tdbo.listarTipoDocumentoCombo()){
+            jCTipoDocumento.addItem(item.getIdTipoDocumento()+" "+item.getNombre());
+        }
+        
     }
 
     /**
@@ -60,9 +73,19 @@ public class JPPersonaDocumento extends javax.swing.JPanel {
         jPanel1.add(TxtPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, 270, 20));
 
         btnGuardar2.setText("Guardar");
+        btnGuardar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardar2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnGuardar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 500, -1, -1));
 
         btnLimpiar2.setText("Limpiar");
+        btnLimpiar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiar2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnLimpiar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 500, -1, -1));
 
         jLabel3.setText("Tipo Documento");
@@ -106,11 +129,11 @@ public class JPPersonaDocumento extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 883, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -125,6 +148,35 @@ public class JPPersonaDocumento extends javax.swing.JPanel {
     private void TxtNumeroDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtNumeroDocumentoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtNumeroDocumentoActionPerformed
+
+    private void btnGuardar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar2ActionPerformed
+        // TODO add your handling code here:
+        String tdSeleccionado = (String)jCTipoDocumento.getSelectedItem();
+        String idPersona = tdSeleccionado.split(" ")[0];
+        
+        System.out.println("id: " + idPersona);
+        
+        try {
+//            td.setNombre(txtNombre.getText());
+//            td.setBillete(txtEstado.getText());
+//            td.setIdPerosona(idPersona);
+//            tdbo.agregarTipoDocomento(td);
+//            listarTipoDocumento();
+            JOptionPane.showMessageDialog(null, ":) se guardo corectamente");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: al guardar Tipo documento ");
+        }
+    }//GEN-LAST:event_btnGuardar2ActionPerformed
+
+    private void btnLimpiar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiar2ActionPerformed
+        // TODO add your handling code here:
+        /*TxtNombre.setText("");
+        TxtEstado.setText("");
+        TxtOrden.setText("");
+        TxtSigla.setText("");
+        TxtFechaRegistro.setText("");
+        TxtFechaActializacion.setText("");*/
+    }//GEN-LAST:event_btnLimpiar2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

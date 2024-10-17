@@ -6,6 +6,7 @@ import com.victor.pe.cdatosdao.TipoDocumentoDao;
 import com.victor.pe.cmodelo.TipoDocumento;
 import com.victor.pe.db.Conexion;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.JTable;
 
 
@@ -52,15 +53,24 @@ public class TipoDocumentoBO {
         return mensaje;
     }
     
-    public void ListarTipoDocumento(JTable table) throws SQLException{
+    public void listarTipoDocumento(JTable table){
         Connection c = Conexion.getConnection();
+        tdd.listarTipoDocumento(c, table);
         try {
-            tdd.listarTipoDocumento(c, table);
-            c.commit();
+            c.close();
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
-        } finally {
+        } 
+    }
+    public ArrayList<TipoDocumento> listarTipoDocumentoCombo(){
+        ArrayList<TipoDocumento> listaTipoDocumento = new ArrayList<>();
+        Connection c = Conexion.getConnection();
+        listaTipoDocumento = tdd.listarTipoDocumentosCombo(c);
+        try {
             c.close();
-        }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        } 
+        return listaTipoDocumento;
     }
 }

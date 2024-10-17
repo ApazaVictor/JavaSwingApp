@@ -9,6 +9,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 
@@ -93,7 +94,7 @@ public class TipoDocumentoDao {
         
     }
     //Cuarto Metodo - Listar Tipo Documento.
-    public void listarTipoDocumento(Connection conn, JTable table){
+    public void listarTipoDocumento(Connection conn){
         System.out.println("aquiiii");
         DefaultTableModel model;
         Statement statement = null;
@@ -131,4 +132,29 @@ public class TipoDocumentoDao {
             System.out.println(e.getMessage());
         }
     }
+    public ArrayList<TipoDocumento> listarTipoDocumentoCombo(Connection conn, JTable table){
+        ArrayList<TipoDocumento> listarTipoDocumento = new ArrayList<>();
+        Statement statement = null;
+        ResultSet resultSet = null;
+        String sql = "SELECT * FROM TIPO_DOCUMENTO, NOMBRE FROM TIPO_DOCUMENTO"
+                + "ORDER BY ORDEN";
+        try {
+            statement = conn.createStatement();
+            resultSet = statement.executeQuery(sql);
+            while(resultSet.next()){
+                TipoDocumento td = new TipoDocumento();
+                td.setIdTipoDocumento(resultSet.getInt("ID_TIPO_DOCUMENTO"));
+                td.setNombre(resultSet.getString("NOMBRE"));
+                listarTipoDocumento.add(td);
+                
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: "+e.getMessage());
+            System.out.println(e.getMessage());
+        }
+        return listarTipoDocumento;
+        
+
+    }
+
 }
