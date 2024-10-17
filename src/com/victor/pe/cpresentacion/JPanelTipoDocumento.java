@@ -7,10 +7,11 @@ package com.victor.pe.cpresentacion;
 import com.victor.pe.cmodelo.TipoDocumento;
 import com.victor.pe.cnegocio.TipoDocumentoBO;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.swing.JOptionPane;
+/*import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;*/
+
 
 
 /**
@@ -20,6 +21,7 @@ import javax.swing.JOptionPane;
 public class JPanelTipoDocumento extends javax.swing.JPanel {
     TipoDocumentoBO tdbo = new TipoDocumentoBO();
     TipoDocumento td = new TipoDocumento();
+    String idTipoDocumento;
     
    
 
@@ -67,7 +69,7 @@ public class JPanelTipoDocumento extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        TipoDocumento.setBackground(new java.awt.Color(255, 255, 255));
+        TipoDocumento.setBackground(new java.awt.Color(153, 255, 204));
         TipoDocumento.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TablaTipoDocumento.setModel(new javax.swing.table.DefaultTableModel(
@@ -81,9 +83,14 @@ public class JPanelTipoDocumento extends javax.swing.JPanel {
 
             }
         ));
+        TablaTipoDocumento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablaTipoDocumentoMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(TablaTipoDocumento);
 
-        TipoDocumento.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 150, -1, 360));
+        TipoDocumento.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 150, -1, 360));
 
         CRUDTipoDocumento.setFont(new java.awt.Font("Showcard Gothic", 0, 24)); // NOI18N
         CRUDTipoDocumento.setText("CRUD Tipo Documento");
@@ -97,7 +104,7 @@ public class JPanelTipoDocumento extends javax.swing.JPanel {
                 btnEliminarActionPerformed(evt);
             }
         });
-        TipoDocumento.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 530, -1, -1));
+        TipoDocumento.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 530, -1, -1));
 
         btnModificar.setBackground(new java.awt.Color(102, 204, 255));
         btnModificar.setText("Modificar");
@@ -106,7 +113,7 @@ public class JPanelTipoDocumento extends javax.swing.JPanel {
                 btnModificarActionPerformed(evt);
             }
         });
-        TipoDocumento.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 530, -1, -1));
+        TipoDocumento.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 530, -1, -1));
 
         TxtNombre.setBorder(null);
         TxtNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -171,7 +178,7 @@ public class JPanelTipoDocumento extends javax.swing.JPanel {
                 btnLimpiarActionPerformed(evt);
             }
         });
-        TipoDocumento.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 540, -1, -1));
+        TipoDocumento.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 540, -1, -1));
 
         jSeparator5.setBackground(new java.awt.Color(51, 51, 51));
         jSeparator5.setForeground(new java.awt.Color(51, 51, 51));
@@ -199,61 +206,20 @@ public class JPanelTipoDocumento extends javax.swing.JPanel {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-        /*try {
+        try {
+            if(valida()){
             td.setNombre(TxtNombre.getText());
             td.setEstado(TxtEstado.getText());
             td.setOrden(Integer.parseInt(TxtOrden.getText()));
             td.setSigla(TxtSigla.getText());
             td.setFechaActualiza(TxtFechaActualiza.getText());          
             tdbo.agregarTipoDocumento(td); 
-            JOptionPane.showMessageDialog(null, ":) se guardo corectamente");
+            ListarTipoDocumento();
+            JOptionPane.showMessageDialog(null, ":) se guardo correctamente");
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: al guardar Tipo documento ");
-        }*/
-try {
-    // Validar si los campos no están vacíos
-    if (TxtNombre.getText().isEmpty() || TxtEstado.getText().isEmpty() || TxtOrden.getText().isEmpty() || TxtSigla.getText().isEmpty() || TxtFechaActualiza.getText().isEmpty()) {
-        JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos.");
-        return;
-    }
-    
-    // Asignar los valores de los campos al objeto td (TipoDocumento)
-    td.setNombre(TxtNombre.getText());
-    td.setEstado(TxtEstado.getText());
-    
-    // Validar y asignar el valor de Orden
-    try {
-        td.setOrden(Integer.parseInt(TxtOrden.getText()));
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(null, "Error: Orden debe ser un número.");
-        return; // Detener ejecución si no es un número
-    }
-    
-    td.setSigla(TxtSigla.getText());
-    
-    // Validar y convertir el formato de la fecha
-    try {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yy"); // Formato de la fecha esperado
-        Date fecha = sdf.parse(TxtFechaActualiza.getText()); // Convertir el texto a una fecha
-        String fechaString = sdf.format(fecha); // Convertir la fecha a String
-        td.setFechaActualiza(fechaString); // Asignar la fecha convertida al objeto td
-
-    } catch (ParseException pe) {
-        JOptionPane.showMessageDialog(null, "Error: Formato de fecha incorrecto. Use dd-MM-yy.");
-        return; // Detener ejecución si la fecha no es válida
-    }
-    
-    // Guardar el objeto td utilizando el método agregarTipoDocumento
-    tdbo.agregarTipoDocumento(td);
-    
-    // Mostrar mensaje de éxito
-    JOptionPane.showMessageDialog(null, ":) Se guardó correctamente");
-    
-} catch (SQLException e) {
-    JOptionPane.showMessageDialog(null, "Error al guardar Tipo documento en la base de datos: " + e.getMessage());
-} catch (Exception e) {
-    JOptionPane.showMessageDialog(null, "Error inesperado: " + e.getMessage());
-}
+        }
 
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -267,12 +233,66 @@ try {
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        // TODO add your handling code here:                                            
+        // TODO add your handling code here:
+        try {
+            if(valida()){
+            td.setIdTipoDocumento(Integer.parseInt(idTipoDocumento));
+            td.setNombre(TxtNombre.getText());
+            td.setEstado(TxtEstado.getText());
+            td.setOrden(Integer.parseInt(TxtEstado.getText()));
+            td.setSigla(TxtSigla.getText());
+            td.setFechaActualiza(TxtFechaActualiza.getText());          
+            tdbo.ModificarTipoDocumento(td); 
+            ListarTipoDocumento();
+            JOptionPane.showMessageDialog(null, ":) Se Actualizo correctamente");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: al Actualizar Tipo documento ");
+        }   
     }//GEN-LAST:event_btnModificarActionPerformed
-
+     public boolean valida(){
+        if(TxtNombre.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Nombre es requerido");             
+        }else if(TxtSigla.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Sigla es requerido");
+        }else if(TxtOrden.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Orden es requerido");
+        }else if(TxtEstado.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Estado es requerido");
+        }else if(TxtFechaActualiza.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "FechaActualiza es requerido");
+            return false;
+        }
+        return true;
+    }
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:                                            
+        // TODO add your handling code here:                     
+    try {
+      TipoDocumento td = new TipoDocumento();
+      td.setIdTipoDocumento(Integer.parseInt(idTipoDocumento));
+      tdbo.eliminarTipoDocumento(td);
+      ListarTipoDocumento();
+      JOptionPane.showMessageDialog(null, ":) Se Elimino correctamente");
+    } catch (Exception Victor ) {
+   JOptionPane.showMessageDialog(null, "Error:"+ Victor.getMessage());
+
+    }
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void TablaTipoDocumentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaTipoDocumentoMouseClicked
+        // TODO add your handling code here:
+        int seleccion = TablaTipoDocumento.rowAtPoint(evt.getPoint());
+        idTipoDocumento = TablaTipoDocumento.getValueAt(seleccion, 0)+"";  
+        
+    TxtNombre.setText(TablaTipoDocumento.getValueAt(seleccion, 1) + "");
+    TxtSigla.setText(TablaTipoDocumento.getValueAt(seleccion, 2) + "");
+    TxtOrden.setText(TablaTipoDocumento.getValueAt(seleccion, 3) + "");
+    TxtEstado.setText(TablaTipoDocumento.getValueAt(seleccion, 4) + "");
+    TxtFechaActualiza.setText(TablaTipoDocumento.getValueAt(seleccion, 5) + "");                
+                
+    //System.out.println(seleccion);
+    //System.out.println(TipoDocumento);
+    }//GEN-LAST:event_TablaTipoDocumentoMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
