@@ -30,8 +30,8 @@ public class JPanelTipoDocumento extends javax.swing.JPanel {
         ListarTipoDocumento();        
     }
     
-    public void ListarTipoDocumento() throws SQLException{
-        tdbo.ListarTipoDocumento(TablaTipoDocumento);
+    public void ListarTipoDocumento() throws SQLException {
+        tdbo.listarTipoDocumento(TablaTipoDocumento);
     }
     
     /**
@@ -218,6 +218,7 @@ public class JPanelTipoDocumento extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, ":) se guardo correctamente");
             }
         } catch (Exception e) {
+            e.printStackTrace(); // Mejora en el manejo de errores
             JOptionPane.showMessageDialog(null, "Error: al guardar Tipo documento ");
         }
 
@@ -247,6 +248,7 @@ public class JPanelTipoDocumento extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, ":) Se Actualizo correctamente");
             }
         } catch (Exception e) {
+            e.printStackTrace(); // Mejora en el manejo de errores
             JOptionPane.showMessageDialog(null, "Error: al Actualizar Tipo documento ");
         }   
     }//GEN-LAST:event_btnModificarActionPerformed
@@ -274,25 +276,51 @@ public class JPanelTipoDocumento extends javax.swing.JPanel {
       ListarTipoDocumento();
       JOptionPane.showMessageDialog(null, ":) Se Elimino correctamente");
     } catch (Exception Victor ) {
-   JOptionPane.showMessageDialog(null, "Error:"+ Victor.getMessage());
+        //e.printStackTrace(); // Mejora en el manejo de errores
+        JOptionPane.showMessageDialog(null, "Error:"+ Victor.getMessage());
 
     }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void TablaTipoDocumentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaTipoDocumentoMouseClicked
         // TODO add your handling code here:
-        int seleccion = TablaTipoDocumento.rowAtPoint(evt.getPoint());
-        idTipoDocumento = TablaTipoDocumento.getValueAt(seleccion, 0)+"";  
-        
+    int seleccion = TablaTipoDocumento.rowAtPoint(evt.getPoint());
+    idTipoDocumento = TablaTipoDocumento.getValueAt(seleccion, 0)+"";
+    //if (valida()) {
     TxtNombre.setText(TablaTipoDocumento.getValueAt(seleccion, 1) + "");
     TxtSigla.setText(TablaTipoDocumento.getValueAt(seleccion, 2) + "");
     TxtOrden.setText(TablaTipoDocumento.getValueAt(seleccion, 3) + "");
     TxtEstado.setText(TablaTipoDocumento.getValueAt(seleccion, 4) + "");
     TxtFechaActualiza.setText(TablaTipoDocumento.getValueAt(seleccion, 5) + "");                
-                
+    //}
     //System.out.println(seleccion);
     //System.out.println(TipoDocumento);
     }//GEN-LAST:event_TablaTipoDocumentoMouseClicked
+/*private boolean valida() {
+    StringBuilder errorMessage = new StringBuilder();
+
+    if (TxtNombre == null || TxtNombre.getText().isEmpty()) {
+        errorMessage.append("Nombre es requerido\n");
+    }
+    if (TxtSigla == null || TxtSigla.getText().isEmpty()) {
+        errorMessage.append("Sigla es requerido\n");
+    }
+    if (TxtOrden == null || TxtOrden.getText().isEmpty()) {
+        errorMessage.append("Orden es requerido\n");
+    }
+    if (TxtEstado == null || TxtEstado.getText().isEmpty()) {
+        errorMessage.append("Estado es requerido\n");
+    }
+    if (TxtFechaActualiza == null || TxtFechaActualiza.getText().isEmpty()) {
+        errorMessage.append("Fecha Actualiza es requerido\n");
+    }
+
+    if (errorMessage.length() > 0) {
+        JOptionPane.showMessageDialog(null, errorMessage.toString(), "Errores de Validación", JOptionPane.ERROR_MESSAGE);
+        return false;
+    }
+    return true;
+}*/
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

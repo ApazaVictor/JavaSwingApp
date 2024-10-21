@@ -94,7 +94,7 @@ public class TipoDocumentoDao {
         
     }
     //Cuarto Metodo - Listar Tipo Documento.
-    public void listarTipoDocumento(Connection conn){
+    public void listarTipoDocumento(Connection conn, JTable table){
         System.out.println("aquiiii");
         DefaultTableModel model;
         Statement statement = null;
@@ -132,7 +132,7 @@ public class TipoDocumentoDao {
             System.out.println(e.getMessage());
         }
     }
-    public ArrayList<TipoDocumento> listarTipoDocumentoCombo(Connection conn, JTable table){
+    public ArrayList<TipoDocumento> listarTipoDocumentoCombo(Connection conn){
         ArrayList<TipoDocumento> listarTipoDocumento = new ArrayList<>();
         Statement statement = null;
         ResultSet resultSet = null;

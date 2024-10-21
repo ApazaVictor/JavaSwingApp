@@ -62,7 +62,7 @@ public class TipoDocumentoBO {
             System.out.println("Error: " + e.getMessage());
         } 
     }
-    public ArrayList<TipoDocumento> listarTipoDocumentoCombo(){
+    /*public ArrayList<TipoDocumento> listarTipoDocumentoCombo(){
         ArrayList<TipoDocumento> listaTipoDocumento = new ArrayList<>();
         Connection c = Conexion.getConnection();
         listaTipoDocumento = tdd.listarTipoDocumentosCombo(c);
@@ -73,4 +73,32 @@ public class TipoDocumentoBO {
         } 
         return listaTipoDocumento;
     }
+}*/
+    public ArrayList<TipoDocumento> listarTipoDocumentoCombo() {
+    ArrayList<TipoDocumento> listaTipoDocumento = new ArrayList<>();
+    Connection c = null;
+    TipoDocumentoDao tdd = new TipoDocumentoDao(); // Aquí se instancia
+
+    try {
+        c = Conexion.getConnection(); // Obtener conexión a la base de datos
+        if (c != null) {
+            listaTipoDocumento = tdd.listarTipoDocumentoCombo(c); // Llama al método
+        } else {
+            System.out.println("Error: la conexión es null.");
+        }
+    } catch (Exception e) {
+        System.out.println("Error al listar tipo documentos para combo: " + e.getMessage());
+    } finally {
+        if (c != null) {
+            try {
+                c.close(); // Cerrar conexión
+            } catch (Exception e) {
+                System.out.println("Error al cerrar conexión: " + e.getMessage());
+            }
+        }
+    }
+    return listaTipoDocumento;
+  }
+
 }
+    

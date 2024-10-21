@@ -159,11 +159,11 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
     private void btnMenuPersonaDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuPersonaDocumentoActionPerformed
         // TODO add your handling code here:
-        JPPersonaDocumento pd = new JPPersonaDocumento();
-        pd.setSize(413, 655);
-        pd.setLocation(0,0);
+        JPPersonaDocumento tp = new JPPersonaDocumento();
+        tp.setSize(1100, 600);
+        tp.setLocation(0,0);
         Principal.removeAll();
-        Principal.add(pd, BorderLayout.CENTER);
+        Principal.add(tp, BorderLayout.CENTER);
         Principal.revalidate();
         Principal.repaint();
     }//GEN-LAST:event_btnMenuPersonaDocumentoActionPerformed
